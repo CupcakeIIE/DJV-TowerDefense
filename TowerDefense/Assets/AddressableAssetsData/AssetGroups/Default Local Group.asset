@@ -23,6 +23,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - tour
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 672ef45d9da03f9499e88f0c19ff9143
+    m_Address: Assets/Troll/Monstre Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - monstre
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ef2606fcbd9b0c49b7bdbcbca19d118
+    m_Address: Assets/Gobelin/Monstre Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - monstre
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5946cabe7e957b4fbed30ba87233d34
     m_Address: Assets/TourClassique/Tour Variant.prefab
     m_ReadOnly: 0
@@ -40,6 +52,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - tour
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8fc8e4f487bc4f40a02a585beabf21e
+    m_Address: Assets/Dragon/Monstre Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - monstre
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c94fa9fb5837440448c31a320c8d0891, type: 2}
