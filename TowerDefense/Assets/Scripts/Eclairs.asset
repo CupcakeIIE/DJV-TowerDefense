@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1019393b979bfb945af00d24e124cf46, type: 3}
+  m_Name: Eclairs
+  m_EditorClassIdentifier: 
+  prix: 50
+  projectiles: 3
+  frequence: 0.5
+  vitesse: 1
+  degats: 25
