@@ -27,13 +27,13 @@ MonoBehaviour:
     m_Address: Assets/Troll/Monstre Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - monstre
+    - troll
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ef2606fcbd9b0c49b7bdbcbca19d118
     m_Address: Assets/Gobelin/Monstre Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - monstre
+    - gobelin
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5946cabe7e957b4fbed30ba87233d34
     m_Address: Assets/TourClassique/Tour Variant.prefab
@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Address: Assets/Dragon/Monstre Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - monstre
+    - dragon
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c94fa9fb5837440448c31a320c8d0891, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: e59c13655a2cc3b40a2a34bbfce04436
   m_currentHash:
     serializedVersion: 2
-    Hash: 4c7ecf0e90a9c60cfcea94821b01de1d
+    Hash: 3407b2c35651c4b3893acd4824f59448
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -89,6 +89,9 @@ MonoBehaviour:
     - default
     - tour
     - monstre
+    - dragon
+    - gobelin
+    - troll
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6de6680e23020f74d92a90fe10c9ecf9, type: 2}
