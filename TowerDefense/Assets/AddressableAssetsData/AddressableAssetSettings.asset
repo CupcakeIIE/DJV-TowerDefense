@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: e59c13655a2cc3b40a2a34bbfce04436
   m_currentHash:
     serializedVersion: 2
-    Hash: 3407b2c35651c4b3893acd4824f59448
+    Hash: 92c21f42168f1583b48cc39814e9452d
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -92,6 +92,10 @@ MonoBehaviour:
     - dragon
     - gobelin
     - troll
+    - classique
+    - eclair
+    - lourde
+    - graal
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6de6680e23020f74d92a90fe10c9ecf9, type: 2}

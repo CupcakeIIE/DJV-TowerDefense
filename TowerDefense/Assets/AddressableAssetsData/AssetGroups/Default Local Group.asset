@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Address: Assets/TourEclair/Tour Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - tour
+    - eclair
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 672ef45d9da03f9499e88f0c19ff9143
     m_Address: Assets/Troll/Monstre Variant.prefab
@@ -39,19 +39,19 @@ MonoBehaviour:
     m_Address: Assets/TourClassique/Tour Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - tour
+    - classique
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad80b808f93aa0d45a87ba7125f788de
     m_Address: Assets/TourLourde/Tour Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - tour
+    - lourde
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efa4ee4d22647b64badcdfcc88eb3209
     m_Address: Assets/TourGraal/Tour Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - tour
+    - graal
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8fc8e4f487bc4f40a02a585beabf21e
     m_Address: Assets/Dragon/Monstre Variant.prefab
