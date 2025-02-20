@@ -7,6 +7,8 @@ public class Game : MonoBehaviour
     public GameObject panelAchat;
     public GameObject affichage;
 
+    private bool achat = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +18,18 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && achat)
+        {
+            panelAchat.SetActive(false);
+            affichage.SetActive(true);
+            achat = false;
+            panelAchat.GetComponent<AchatTours>().selected.GetComponent<MeshRenderer>().material = panelAchat.GetComponent<AchatTours>().emplacement; 
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && !achat)
         {
             panelAchat.SetActive(true);
             affichage.SetActive(false);
+            achat = true;
         }
     }
 }

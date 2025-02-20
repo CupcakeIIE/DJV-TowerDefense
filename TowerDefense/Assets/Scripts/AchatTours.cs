@@ -11,7 +11,7 @@ public class AchatTours : MonoBehaviour
     public Material emplacement;
     public Material selection;
 
-    private Transform selected;
+    public Transform selected;
     private int emplacementIndex = 0; 
 
     private bool choix = false;
@@ -80,11 +80,19 @@ public class AchatTours : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Y))
             {
                 choix = false;
+                selected.GetComponent<MeshRenderer>().material = emplacement;
                 Instantiate(tourPrefab, selected.position, selected.rotation);
-                Debug.Log(tourPrefab.transform.position);
-                Debug.Log(selected.position);
             } 
+
+            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                choix = false;
+                selected.GetComponent<MeshRenderer>().material = emplacement;
+                Debug.Log("stop");
+            }
         }
+
     }
 
 
@@ -100,17 +108,32 @@ public class AchatTours : MonoBehaviour
 
     public void AchatArtillerieLourde ()
     {
-        Debug.Log("Lourde");
+        choix = true;
+        selected.GetComponent<MeshRenderer>().material = emplacement;
+        emplacementIndex = 0;
+        selected = Emplacements.emplacements[0];
+        selected.GetComponent<MeshRenderer>().material = selection;
+        tourPrefab = loadedTours[3];
     }
 
     public void AchatStGraal ()
     {
-        Debug.Log("Graal");
+        choix = true;
+        selected.GetComponent<MeshRenderer>().material = emplacement;
+        emplacementIndex = 0;
+        selected = Emplacements.emplacements[0];
+        selected.GetComponent<MeshRenderer>().material = selection;
+        tourPrefab = loadedTours[2];
     }
 
     public void AchatLowCost ()
     {
-        Debug.Log("LowCost");
+        choix = true;
+        selected.GetComponent<MeshRenderer>().material = emplacement;
+        emplacementIndex = 0;
+        selected = Emplacements.emplacements[0];
+        selected.GetComponent<MeshRenderer>().material = selection;
+        tourPrefab = loadedTours[1];
     }
 
 }
