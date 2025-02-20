@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Game : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class Game : MonoBehaviour
     public GameObject affichage;
 
     private bool achat = false;
+
+    public int gold = 50;
+
+    public TMP_Text goldText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +37,7 @@ public class Game : MonoBehaviour
             affichage.SetActive(false);
             achat = true;
         }
+
+        goldText.text = "Monnaie : " + gold;
     }
 }

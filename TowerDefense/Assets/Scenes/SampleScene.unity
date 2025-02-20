@@ -1461,6 +1461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelAchat: {fileID: 372853929}
   affichage: {fileID: 254316803}
+  gold: 50
+  goldText: {fileID: 825094305}
 --- !u!4 &362410499
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,11 +1525,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emplacement: {fileID: 2100000, guid: 782e20d33d7ff314babb784270641e9a, type: 2}
   selection: {fileID: 2100000, guid: 6b1e81a6489eb6d4ebca9895a1fea78e, type: 2}
+  selected: {fileID: 0}
   toursKeys:
   - eclair
   - classique
   - graal
   - lourde
+  mainGame: {fileID: 362410497}
 --- !u!1 &375442792
 GameObject:
   m_ObjectHideFlags: 0

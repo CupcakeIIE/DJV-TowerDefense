@@ -25,6 +25,9 @@ public class AchatTours : MonoBehaviour
 
     private GameObject tourPrefab;
 
+
+    public GameObject mainGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,42 +101,78 @@ public class AchatTours : MonoBehaviour
 
     public void AchatTourEclair ()
     {
-        choix = true;
-        selected.GetComponent<MeshRenderer>().material = emplacement;
-        emplacementIndex = 0;
-        selected = Emplacements.emplacements[0];
-        selected.GetComponent<MeshRenderer>().material = selection;
-        tourPrefab = loadedTours[0];
+        if (mainGame.GetComponent<Game>().gold >= 50)
+        {
+            choix = true;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+            emplacementIndex = 0;
+            selected = Emplacements.emplacements[0];
+            selected.GetComponent<MeshRenderer>().material = selection;
+            tourPrefab = loadedTours[0];
+            mainGame.GetComponent<Game>().gold -= 50;
+        }
+        else 
+        {
+            choix = false;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+        }
     }
 
     public void AchatArtillerieLourde ()
     {
-        choix = true;
-        selected.GetComponent<MeshRenderer>().material = emplacement;
-        emplacementIndex = 0;
-        selected = Emplacements.emplacements[0];
-        selected.GetComponent<MeshRenderer>().material = selection;
-        tourPrefab = loadedTours[3];
+        if (mainGame.GetComponent<Game>().gold >= 50)
+        {
+            choix = true;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+            emplacementIndex = 0;
+            selected = Emplacements.emplacements[0];
+            selected.GetComponent<MeshRenderer>().material = selection;
+            tourPrefab = loadedTours[3];
+            mainGame.GetComponent<Game>().gold -= 50;
+        }
+        else 
+        {
+            choix = false;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+        }
     }
 
     public void AchatStGraal ()
     {
-        choix = true;
-        selected.GetComponent<MeshRenderer>().material = emplacement;
-        emplacementIndex = 0;
-        selected = Emplacements.emplacements[0];
-        selected.GetComponent<MeshRenderer>().material = selection;
-        tourPrefab = loadedTours[2];
+        if (mainGame.GetComponent<Game>().gold >= 100)
+        {
+            choix = true;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+            emplacementIndex = 0;
+            selected = Emplacements.emplacements[0];
+            selected.GetComponent<MeshRenderer>().material = selection;
+            tourPrefab = loadedTours[2];
+            mainGame.GetComponent<Game>().gold -= 100;
+        }
+        else 
+        {
+            choix = false;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+        }
     }
 
     public void AchatLowCost ()
     {
-        choix = true;
-        selected.GetComponent<MeshRenderer>().material = emplacement;
-        emplacementIndex = 0;
-        selected = Emplacements.emplacements[0];
-        selected.GetComponent<MeshRenderer>().material = selection;
-        tourPrefab = loadedTours[1];
+        if (mainGame.GetComponent<Game>().gold >= 10)
+        {
+            choix = true;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+            emplacementIndex = 0;
+            selected = Emplacements.emplacements[0];
+            selected.GetComponent<MeshRenderer>().material = selection;
+            tourPrefab = loadedTours[1];
+            mainGame.GetComponent<Game>().gold -= 10;
+        }
+        else 
+        {
+            choix = false;
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+        }
     }
 
 }
