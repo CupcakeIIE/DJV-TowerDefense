@@ -9,10 +9,13 @@ public class Monstres : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
 
+    public GameObject game;
+
     // Start is called before the first frame update
     void Start()
     {
         target = Waypoints.points[0];
+        game = GameObject.Find ("GameManager");
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class Monstres : MonoBehaviour
     {
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
+            game.GetComponent<Game>().nbEnnemisVivants -= 1;
             Destroy(gameObject);      
             return;  
         }

@@ -1463,6 +1463,8 @@ MonoBehaviour:
   affichage: {fileID: 254316803}
   gold: 50
   goldText: {fileID: 825094305}
+  nbEnnemisVivants: 15
+  spawner: {fileID: 887693190}
 --- !u!4 &362410499
 Transform:
   m_ObjectHideFlags: 0
@@ -4767,6 +4769,7 @@ MonoBehaviour:
   - gobelin
   - troll
   spawnInterval: 3
+  nbMonstresToSpawn: 15
 --- !u!1 &901463970
 GameObject:
   m_ObjectHideFlags: 0

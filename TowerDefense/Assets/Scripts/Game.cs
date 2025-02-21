@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading;
 
 public class Game : MonoBehaviour
 {
@@ -14,17 +15,21 @@ public class Game : MonoBehaviour
 
     public TMP_Text goldText;
 
+    public int nbEnnemisVivants;
+
+    public GameObject spawner;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        nbEnnemisVivants = spawner.GetComponent<Spawner>().nbMonstresToSpawn;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && achat)
+        /*if (Input.GetKeyDown(KeyCode.Escape) && achat)
         {
             panelAchat.SetActive(false);
             affichage.SetActive(true);
@@ -36,8 +41,16 @@ public class Game : MonoBehaviour
             panelAchat.SetActive(true);
             affichage.SetActive(false);
             achat = true;
-        }
+        }*/
 
         goldText.text = "Monnaie : " + gold;
+
+        if (nbEnnemisVivants <= 0)
+        {
+            Thread.Sleep(1000);
+            panelAchat.SetActive(true);
+            affichage.SetActive(false);
+            achat = true;
+        }
     }
 }
