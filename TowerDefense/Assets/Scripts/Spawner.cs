@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     [Tooltip("Time interval between enemy spawns in seconds.")]
     public int spawnInterval = 3;
 
+    public int nbMonstresSpawn;
     public int nbMonstresToSpawn;
 
     private List<GameObject> loadedMonstres = new List<GameObject>();
@@ -24,6 +25,7 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(LoadMonstresAndStartSpawning());
         nbMonstresToSpawn = 15;
+        nbMonstresSpawn = 15;
     }
 
     private IEnumerator LoadMonstresAndStartSpawning()
@@ -44,11 +46,11 @@ public class Spawner : MonoBehaviour
         StartCoroutine(SpawnMonstres());
     }
 
-    private IEnumerator SpawnMonstres()
+    public IEnumerator SpawnMonstres()
     {
         while (true)
         {
-            if (loadedMonstres.Count > 0 && nbMonstresToSpawn > 0)
+            if (loadedMonstres.Count > 0 && nbMonstresSpawn > 0)
             {
                 GameObject monstrePrefab;
 
@@ -77,7 +79,7 @@ public class Spawner : MonoBehaviour
 
                 // Instantiate the enemy at the spawner's position and rotation
                 Instantiate(monstrePrefab, this.transform.position, this.transform.rotation);
-                nbMonstresToSpawn -= 1;
+                nbMonstresSpawn -= 1;
             }
 
             yield return new WaitForSeconds(spawnInterval);

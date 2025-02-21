@@ -45,12 +45,24 @@ public class Game : MonoBehaviour
 
         goldText.text = "Monnaie : " + gold;
 
-        if (nbEnnemisVivants <= 0)
+        if (nbEnnemisVivants <= 0 && !achat)
         {
             Thread.Sleep(1000);
             panelAchat.SetActive(true);
             affichage.SetActive(false);
             achat = true;
         }
+    }
+
+
+    public void ButtonNextVague()
+    {
+        panelAchat.SetActive(false);
+        affichage.SetActive(true);
+        panelAchat.GetComponent<AchatTours>().selected.GetComponent<MeshRenderer>().material = panelAchat.GetComponent<AchatTours>().emplacement; 
+        nbEnnemisVivants = spawner.GetComponent<Spawner>().nbMonstresToSpawn;
+        spawner.GetComponent<Spawner>().nbMonstresSpawn = spawner.GetComponent<Spawner>().nbMonstresToSpawn;
+        achat = false;
+        //StartCoroutine(spawner.GetComponent<Spawner>().SpawnMonstres());
     }
 }

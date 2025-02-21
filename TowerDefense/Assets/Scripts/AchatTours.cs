@@ -25,6 +25,8 @@ public class AchatTours : MonoBehaviour
 
     private GameObject tourPrefab;
 
+    private int tourAchete;
+
 
     public GameObject mainGame;
 
@@ -85,15 +87,20 @@ public class AchatTours : MonoBehaviour
                 choix = false;
                 selected.GetComponent<MeshRenderer>().material = emplacement;
                 Instantiate(tourPrefab, selected.position, selected.rotation);
-            } 
 
-            
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                choix = false;
-                selected.GetComponent<MeshRenderer>().material = emplacement;
-                Debug.Log("stop");
-            }
+                if (tourAchete == 3)
+                {
+                    mainGame.GetComponent<Game>().gold -= 100;
+                }
+                else if (tourAchete == 4)
+                {
+                    mainGame.GetComponent<Game>().gold -= 10;
+                }
+                else
+                {
+                    mainGame.GetComponent<Game>().gold -= 50;
+                }
+            } 
         }
 
     }
@@ -109,7 +116,7 @@ public class AchatTours : MonoBehaviour
             selected = Emplacements.emplacements[0];
             selected.GetComponent<MeshRenderer>().material = selection;
             tourPrefab = loadedTours[0];
-            mainGame.GetComponent<Game>().gold -= 50;
+            tourAchete = 1;
         }
         else 
         {
@@ -128,7 +135,7 @@ public class AchatTours : MonoBehaviour
             selected = Emplacements.emplacements[0];
             selected.GetComponent<MeshRenderer>().material = selection;
             tourPrefab = loadedTours[3];
-            mainGame.GetComponent<Game>().gold -= 50;
+            tourAchete = 2;
         }
         else 
         {
@@ -147,7 +154,7 @@ public class AchatTours : MonoBehaviour
             selected = Emplacements.emplacements[0];
             selected.GetComponent<MeshRenderer>().material = selection;
             tourPrefab = loadedTours[2];
-            mainGame.GetComponent<Game>().gold -= 100;
+            tourAchete = 3;
         }
         else 
         {
@@ -166,7 +173,7 @@ public class AchatTours : MonoBehaviour
             selected = Emplacements.emplacements[0];
             selected.GetComponent<MeshRenderer>().material = selection;
             tourPrefab = loadedTours[1];
-            mainGame.GetComponent<Game>().gold -= 10;
+            tourAchete = 4;
         }
         else 
         {
