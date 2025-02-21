@@ -1462,7 +1462,11 @@ MonoBehaviour:
   panelAchat: {fileID: 372853929}
   affichage: {fileID: 254316803}
   gold: 50
+  score: 0
+  multi: 1
   goldText: {fileID: 825094305}
+  scoreText: {fileID: 1694327631}
+  multiText: {fileID: 601870167}
   nbEnnemisVivants: 15
   spawner: {fileID: 887693190}
 --- !u!4 &362410499
@@ -4903,6 +4907,7 @@ MonoBehaviour:
   - gobelin
   - troll
   spawnInterval: 3
+  nbMonstresSpawn: 0
   nbMonstresToSpawn: 15
 --- !u!1 &901463970
 GameObject:

@@ -35,6 +35,15 @@ public class Monstres : MonoBehaviour
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
             game.GetComponent<Game>().nbEnnemisVivants -= 1;
+            game.GetComponent<Game>().score -= Mathf.Abs(game.GetComponent<Game>().multi * 5);
+            if (game.GetComponent<Game>().multi > 0)
+            {
+                game.GetComponent<Game>().multi = -1;
+            }
+            else 
+            {
+                game.GetComponent<Game>().multi -= 1;
+            }
             Destroy(gameObject);      
             return;  
         }

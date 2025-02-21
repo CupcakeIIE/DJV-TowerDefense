@@ -12,8 +12,12 @@ public class Game : MonoBehaviour
     private bool achat = false;
 
     public int gold = 50;
+    public int score = 0;
+    public int multi = 1;
 
     public TMP_Text goldText;
+    public TMP_Text scoreText;
+    public TMP_Text multiText;
 
     public int nbEnnemisVivants;
 
@@ -44,6 +48,8 @@ public class Game : MonoBehaviour
         }*/
 
         goldText.text = "Monnaie : " + gold;
+        scoreText.text = "Score : " + score;
+        multiText.text = "Multiplicateur : " + multi;
 
         if (nbEnnemisVivants <= 0 && !achat)
         {
