@@ -11,10 +11,36 @@ public class ToursTirs : MonoBehaviour
 
     private int increment = 0;
 
+    private float range = 25f;
+
+    private Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+    }
+
+    private void UpdateTarget ()
+    {
+        GameObject[] monstres = GameObject.FindGameObjectsWithTag("Monstre");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestMonstre = null;
+
+        foreach (GameObject monstre in monstres)
+        {
+            float distanceToMonstre = Vector3.Distance(transform.position, monstre.transform.position);
+            if (distanceToMonstre < shortestDistance)
+            {
+                shortestDistance = distanceToMonstre;
+                nearestMonstre = monstre;
+            }
+        }
+
+        if (nearestMonstre != null && shortestDistance <= range)
+        {
+            target = nearestMonstre.transform;
+        }
     }
 
     // Update is called once per frame
@@ -30,5 +56,18 @@ public class ToursTirs : MonoBehaviour
             increment += 1;
         }
         
+
+
+
+        if (target != null)
+        {
+            transform.LookAt(target);
+        }
+    }
+
+
+    private void OnDrawGizmosSelected ()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
