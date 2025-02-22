@@ -46,15 +46,6 @@ public class ToursTirs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (increment == 500)
-        {
-            GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
-            increment = 0;
-        }
-        else
-        {
-            increment += 1;
-        }
         
 
 
@@ -62,6 +53,16 @@ public class ToursTirs : MonoBehaviour
         if (target != null)
         {
             transform.LookAt(target);
+            
+            if (increment == 500)
+            {
+                GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
+                increment = 0;
+            }
+            else
+            {
+                increment += 1;
+            }
         }
     }
 
