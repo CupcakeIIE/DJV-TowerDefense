@@ -7,12 +7,19 @@ public class Munition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 12);
+        transform.Translate(Vector3.forward * Time.deltaTime * 25);
+    }
+    
+    void OnCollisionEnter (Collision collision)
+    {
+        if (collision.gameObject.tag == "Monstre")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Monstres : MonoBehaviour
 {
-    public float speed = 10f;
+    private float speed = 2f;
 
     private Transform target;
     private int waypointIndex = 0;
@@ -50,5 +50,18 @@ public class Monstres : MonoBehaviour
 
         waypointIndex++;
         target = Waypoints.points[waypointIndex];
+    }
+
+
+
+    
+    void OnCollisionEnter (Collision collision)
+    {
+        Debug.Log("touche");
+        if (collision.gameObject.tag == "bullet")
+        {
+            Destroy(this.transform);
+            Destroy(collision.transform.gameObject);
+        }
     }
 }

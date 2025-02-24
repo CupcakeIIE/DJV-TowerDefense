@@ -41,6 +41,10 @@ public class ToursTirs : MonoBehaviour
         {
             target = nearestMonstre.transform;
         }
+        else
+        {
+            target = null;
+        }
     }
 
     // Update is called once per frame

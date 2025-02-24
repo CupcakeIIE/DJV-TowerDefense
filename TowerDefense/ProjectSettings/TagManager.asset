@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tour
   - Monstre
+  - bullet
   layers:
   - Default
   - TransparentFX
