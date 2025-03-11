@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Monstres : MonoBehaviour
 {
-    private float speed = 2f;
+    private float speed = 5f;
 
     private Transform target;
     private int waypointIndex = 0;
+
+    public int life = 10;
 
     public GameObject game;
 

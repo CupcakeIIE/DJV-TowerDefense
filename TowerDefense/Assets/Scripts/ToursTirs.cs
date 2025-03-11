@@ -7,7 +7,6 @@ public class ToursTirs : MonoBehaviour
     public GameObject munitionPrefab;
     public GameObject posDepart;
     public int frequenceTir = 10;
-    public int speedMunition = 8;
 
     private int increment = 0;
 
