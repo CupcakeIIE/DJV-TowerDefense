@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(LoadMonstresAndStartSpawning());
         nbMonstresToSpawn = 15;
-        nbMonstresSpawn = 15;
+        nbMonstresSpawn = 0;
     }
 
     private IEnumerator LoadMonstresAndStartSpawning()

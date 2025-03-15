@@ -27,7 +27,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nbEnnemisVivants = spawner.GetComponent<Spawner>().nbMonstresToSpawn;
+        nbEnnemisVivants = 0;
     }
 
     // Update is called once per frame
