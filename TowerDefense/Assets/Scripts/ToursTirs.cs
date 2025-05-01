@@ -13,6 +13,8 @@ public class ToursTirs : MonoBehaviour
     private float range = 25f;
 
     private Transform target;
+    
+    [SerializeField] private ToursInfos tourData;
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +59,11 @@ public class ToursTirs : MonoBehaviour
         {
             transform.LookAt(target);
             
-            if (increment == 500)
+            if (increment == tourData.frequence)
             {
-                GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
+                GameObject munition = GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
+                munition.GetComponent<Munition>().degats = tourData.degats;
+                Debug.Log("degats" + munition.GetComponent<Munition>().degats);
                 increment = 0;
             }
             else

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public GameObject game;
+    
+    [SerializeField] private ToursInfos tourData;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +21,11 @@ public class Damage : MonoBehaviour
         
     }
 
-    public void LooseHealth ()
+    public void LooseHealth (int healthToLose)
     {
-        this.GetComponent<Monstres>().life -= 10;
+        this.GetComponent<Monstres>().life -= healthToLose;
 
+        Debug.Log(this.GetComponent<Monstres>().life);
         if (this.GetComponent<Monstres>().life <= 0)
         {
 

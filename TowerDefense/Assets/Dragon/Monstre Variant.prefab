@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8376152262300305274, guid: 25ccdac45ad8c974e8c1d153003dc108, type: 3}
+      propertyPath: monstresData
+      value: 
+      objectReference: {fileID: 11400000, guid: a76f22b8a2f0fd445953ff8fc7558435, type: 2}
     - target: {fileID: 8890558047032311581, guid: 25ccdac45ad8c974e8c1d153003dc108, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

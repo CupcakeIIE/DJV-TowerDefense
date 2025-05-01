@@ -7,6 +7,8 @@ public class Munition : MonoBehaviour
     
     private int speedMunition = 75;
 
+    public int degats;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class Munition : MonoBehaviour
             if (collision.gameObject.tag == "Monstre")
             {
                 GameObject monster = collision.gameObject.transform.parent.gameObject;
-                monster.gameObject.GetComponent<Damage>().LooseHealth();
+                monster.gameObject.GetComponent<Damage>().LooseHealth(degats);
                 Destroy(this.gameObject);
             }
             Destroy(this.gameObject);

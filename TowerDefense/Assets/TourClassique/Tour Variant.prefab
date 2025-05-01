@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tour
       objectReference: {fileID: 0}
+    - target: {fileID: 4942822488207767445, guid: f446678c6dfab0347b1a27728acc4bdd, type: 3}
+      propertyPath: tourData
+      value: 
+      objectReference: {fileID: 11400000, guid: 64985c95c01791245abc7f52450557ba, type: 2}
     - target: {fileID: 6682223644631248643, guid: f446678c6dfab0347b1a27728acc4bdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

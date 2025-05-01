@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tour Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5457878779665631700, guid: 214ad23bae94d9941ab377022dd12d61, type: 3}
+      propertyPath: tourData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f916db8dac302b4396466e181ef5504, type: 2}
     - target: {fileID: 6024178063783579970, guid: 214ad23bae94d9941ab377022dd12d61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

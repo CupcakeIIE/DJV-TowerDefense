@@ -9,15 +9,19 @@ public class Monstres : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
 
-    public int life = 10;
+    public int life;
 
     public GameObject game;
+
+    [SerializeField] private MonstresInfos monstresData;
 
     // Start is called before the first frame update
     void Start()
     {
         target = Waypoints.points[0];
         game = GameObject.Find ("GameManager");
+        
+        life = monstresData.health;
     }
 
     // Update is called once per frame
