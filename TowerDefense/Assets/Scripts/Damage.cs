@@ -30,7 +30,7 @@ public class Damage : MonoBehaviour
         {
 
             game.GetComponent<Game>().nbEnnemisVivants -= 1;
-            game.GetComponent<Game>().score += Mathf.Abs(game.GetComponent<Game>().multi * 5);
+            game.GetComponent<Game>().score += Mathf.Abs(game.GetComponent<Game>().multi * this.GetComponent<Monstres>().score);
             if (game.GetComponent<Game>().multi > 0)
             {
                 game.GetComponent<Game>().multi += 1;
@@ -39,6 +39,8 @@ public class Damage : MonoBehaviour
             {
                 game.GetComponent<Game>().multi = 1;
             }
+
+            game.GetComponent<Game>().gold += this.GetComponent<Monstres>().gold;
 
             Destroy(this.gameObject);
         }

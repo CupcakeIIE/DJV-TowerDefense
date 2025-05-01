@@ -8,7 +8,7 @@ public class ToursInfos : ScriptableObject
     public int prix;
     public int projectiles;
     public float frequence;
-    public float vitesse;
+    public int vitesse;
     public int degats;
 
 

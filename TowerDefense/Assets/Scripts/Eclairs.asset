@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Eclairs
   m_EditorClassIdentifier: 
   prix: 50
-  projectiles: 3
+  projectiles: 1
   frequence: 500
-  vitesse: 1
-  degats: 25
+  vitesse: 75
+  degats: 50

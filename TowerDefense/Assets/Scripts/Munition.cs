@@ -5,7 +5,7 @@ using UnityEngine;
 public class Munition : MonoBehaviour
 {
     
-    private int speedMunition = 75;
+    public int speedMunition;
 
     public int degats;
 

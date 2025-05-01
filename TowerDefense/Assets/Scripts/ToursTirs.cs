@@ -61,9 +61,15 @@ public class ToursTirs : MonoBehaviour
             
             if (increment == tourData.frequence)
             {
-                GameObject munition = GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
-                munition.GetComponent<Munition>().degats = tourData.degats;
-                Debug.Log("degats" + munition.GetComponent<Munition>().degats);
+                int nb_proj = 0;
+                while (nb_proj < tourData.projectiles)
+                {
+                    GameObject munition = GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
+                    munition.GetComponent<Munition>().degats = tourData.degats;
+                    munition.GetComponent<Munition>().speedMunition = tourData.vitesse;
+                    nb_proj += 1;
+                }
+
                 increment = 0;
             }
             else

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Monstres : MonoBehaviour
 {
-    private float speed = 5f;
+    private float speed;
 
     private Transform target;
     private int waypointIndex = 0;
+
+    public int score;
+    public int gold;
 
     public int life;
 
@@ -22,6 +25,9 @@ public class Monstres : MonoBehaviour
         game = GameObject.Find ("GameManager");
         
         life = monstresData.health;
+        speed = monstresData.speed;
+        gold = monstresData.gold;
+        score = monstresData.score;
     }
 
     // Update is called once per frame
