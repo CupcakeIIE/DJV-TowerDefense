@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Graals
   m_EditorClassIdentifier: 
   prix: 100
-  projectiles: 2
-  frequence: 0.25
-  vitesse: 0.75
-  degats: 50
+  projectiles: 1
+  frequence: 500
+  vitesse: 200
+  degats: 100

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prix: 50
   projectiles: 1
-  frequence: 500
-  vitesse: 150
-  degats: 50
+  frequence: 400
+  vitesse: 200
+  degats: 35

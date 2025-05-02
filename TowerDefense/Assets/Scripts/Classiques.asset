@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1019393b979bfb945af00d24e124cf46, type: 3}
   m_Name: Classiques
   m_EditorClassIdentifier: 
-  prix: 10
+  prix: 15
   projectiles: 1
-  frequence: 1
-  vitesse: 0.5
-  degats: 10
+  frequence: 300
+  vitesse: 150
+  degats: 25

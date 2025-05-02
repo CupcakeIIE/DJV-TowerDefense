@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67ee1866f2e8694789ae34d3d76b861, type: 3}
   m_Name: Dragons
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
   health: 500
   score: 100
   gold: 100

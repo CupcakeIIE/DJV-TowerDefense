@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67ee1866f2e8694789ae34d3d76b861, type: 3}
   m_Name: Trolls
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   health: 250
   score: 50
   gold: 50
