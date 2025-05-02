@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using TMPro;
 
 public class AchatTours : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class AchatTours : MonoBehaviour
     private int emplacementIndex = 0; 
 
     private bool choix = false;
+
+    public TMP_Text solde;
 
     
     [Header("Addressable Tours Configurations")]
@@ -65,6 +68,8 @@ public class AchatTours : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        solde.text = "" + mainGame.GetComponent<Game>().gold + "g";
+
         if (choix)
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -105,7 +110,7 @@ public class AchatTours : MonoBehaviour
                 else if (tourAchete == 4)
                 {
                     m_MyEvent.Invoke();
-                    mainGame.GetComponent<Game>().gold -= 10;
+                    mainGame.GetComponent<Game>().gold -= 15;
                 }
                 else
                 {
