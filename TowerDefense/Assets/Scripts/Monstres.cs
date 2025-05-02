@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Monstres : MonoBehaviour
 {
@@ -18,9 +19,23 @@ public class Monstres : MonoBehaviour
 
     [SerializeField] private MonstresInfos monstresData;
 
+    public GameObject way;
+
+    
+    UnityEvent m_MyEvent;
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        way = GameObject.Find ("Waypoint");
+        audioSource = way.GetComponent<AudioSource>();
+        
+        if (m_MyEvent == null)
+            m_MyEvent = new UnityEvent();
+
+        m_MyEvent.AddListener(PlayFailSound);
+
         target = Waypoints.points[0];
         game = GameObject.Find ("GameManager");
         
@@ -46,6 +61,8 @@ public class Monstres : MonoBehaviour
     {
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
+            
+            m_MyEvent.Invoke();
             game.GetComponent<Game>().nbEnnemisVivants -= 1;
             game.GetComponent<Game>().score -= Mathf.Abs(game.GetComponent<Game>().multi * 5);
             if (game.GetComponent<Game>().multi > 0)
@@ -75,5 +92,10 @@ public class Monstres : MonoBehaviour
             Destroy(this.transform);
             Destroy(collision.transform.gameObject);
         }
+    }
+
+    public void PlayFailSound ()
+    {
+        audioSource.Play();
     }
 }

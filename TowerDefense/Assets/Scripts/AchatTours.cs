@@ -27,13 +27,22 @@ public class AchatTours : MonoBehaviour
 
     private int tourAchete;
 
+    UnityEvent m_MyEvent;
 
     public GameObject mainGame;
+
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         selected = Emplacements.emplacements[0];
+
+        
+        if (m_MyEvent == null)
+            m_MyEvent = new UnityEvent();
+
+        m_MyEvent.AddListener(PlayGoldSound);
 
         StartCoroutine(LoadTours());
     }
@@ -90,14 +99,17 @@ public class AchatTours : MonoBehaviour
 
                 if (tourAchete == 3)
                 {
+                    m_MyEvent.Invoke();
                     mainGame.GetComponent<Game>().gold -= 100;
                 }
                 else if (tourAchete == 4)
                 {
+                    m_MyEvent.Invoke();
                     mainGame.GetComponent<Game>().gold -= 10;
                 }
                 else
                 {
+                    m_MyEvent.Invoke();
                     mainGame.GetComponent<Game>().gold -= 50;
                 }
             } 
@@ -180,6 +192,11 @@ public class AchatTours : MonoBehaviour
             choix = false;
             selected.GetComponent<MeshRenderer>().material = emplacement;
         }
+    }
+
+    public void PlayGoldSound ()
+    {
+        audioSource.Play();
     }
 
 }

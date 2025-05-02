@@ -23,11 +23,14 @@ public class Damage : MonoBehaviour
 
     public void LooseHealth (int healthToLose)
     {
+        game.GetComponent<SoundExplosion>().PlayExplosion();
         this.GetComponent<Monstres>().life -= healthToLose;
 
         Debug.Log(this.GetComponent<Monstres>().life);
         if (this.GetComponent<Monstres>().life <= 0)
         {
+            
+            game.GetComponent<Sound>().playVictory();
 
             game.GetComponent<Game>().nbEnnemisVivants -= 1;
             game.GetComponent<Game>().score += Mathf.Abs(game.GetComponent<Game>().multi * this.GetComponent<Monstres>().score);

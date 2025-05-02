@@ -15,5 +15,5 @@ MonoBehaviour:
   prix: 50
   projectiles: 1
   frequence: 500
-  vitesse: 75
+  vitesse: 150
   degats: 50
