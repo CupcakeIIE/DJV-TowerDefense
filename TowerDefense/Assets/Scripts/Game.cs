@@ -21,8 +21,12 @@ public class Game : MonoBehaviour
 
     public int nbEnnemisVivants;
 
+
     public GameObject spawner;
 
+
+    public GameObject panelSound;
+    private bool panelSoundOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +61,17 @@ public class Game : MonoBehaviour
             panelAchat.SetActive(true);
             affichage.SetActive(false);
             achat = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && panelSoundOn)
+        {
+            panelSound.SetActive(false);
+            panelSoundOn = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && !panelSoundOn)
+        {
+            panelSound.SetActive(true);
+            panelSoundOn = true;
         }
     }
 
