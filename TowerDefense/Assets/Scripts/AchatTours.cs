@@ -36,6 +36,9 @@ public class AchatTours : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public GameObject button_yes;
+    public GameObject button_no;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +96,11 @@ public class AchatTours : MonoBehaviour
 
         if (choix && Emplacements.nb_emplacements_occ != Emplacements.emplacements.Length)
         {
+                
+            button_yes.SetActive(true);
+            button_no.SetActive(true);
+
+
             selected.GetComponent<MeshRenderer>().material = selection;
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -159,7 +167,7 @@ public class AchatTours : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Y))
+           /* if (Input.GetKeyDown(KeyCode.Y))
             {
                 choix = false;
                 selected.GetComponent<MeshRenderer>().material = emplacement;
@@ -182,7 +190,7 @@ public class AchatTours : MonoBehaviour
                     m_MyEvent.Invoke();
                     mainGame.GetComponent<Game>().gold -= 50;
                 }
-            } 
+            } */
         }
 
     }
@@ -267,6 +275,43 @@ public class AchatTours : MonoBehaviour
     public void PlayGoldSound ()
     {
         audioSource.Play();
+    }
+
+    public void ButtonYes ()
+    {
+        choix = false;
+        selected.GetComponent<MeshRenderer>().material = emplacement;
+        Instantiate(tourPrefab, selected.position, selected.rotation);
+        Emplacements.emplacements_occ[emplacementIndex] = true;
+        Emplacements.nb_emplacements_occ += 1; 
+
+        if (tourAchete == 3)
+        {
+            m_MyEvent.Invoke();
+            mainGame.GetComponent<Game>().gold -= 100;
+        }
+        else if (tourAchete == 4)
+        {
+            m_MyEvent.Invoke();
+            mainGame.GetComponent<Game>().gold -= 15;
+        }
+        else
+        {
+            m_MyEvent.Invoke();
+            mainGame.GetComponent<Game>().gold -= 50;
+        }
+
+        button_yes.SetActive(false);
+        button_no.SetActive(false);
+    }
+
+    public void ButtonNo ()
+    {
+        choix = false;
+        selected.GetComponent<MeshRenderer>().material = emplacement;
+
+        button_yes.SetActive(false);
+        button_no.SetActive(false);
     }
 
 }
