@@ -70,30 +70,93 @@ public class AchatTours : MonoBehaviour
     {
         solde.text = "" + mainGame.GetComponent<Game>().gold + "g";
 
-        if (choix)
+        if (emplacementIndex == 0 && Emplacements.emplacements_occ[0] && Emplacements.nb_emplacements_occ != Emplacements.emplacements.Length)
+        {            
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+
+            int j = 0;
+            while (Emplacements.emplacements_occ[j] && j < Emplacements.emplacements.Length)
+            {
+                j+=1;
+            }
+            if (j != Emplacements.emplacements.Length)
+            {
+                emplacementIndex = j;         
+                selected = Emplacements.emplacements[j];
+               // selected.GetComponent<MeshRenderer>().material = selection;
+            }
+        }
+        else if (Emplacements.nb_emplacements_occ == Emplacements.emplacements.Length)
         {
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+        }
+
+        if (choix && Emplacements.nb_emplacements_occ != Emplacements.emplacements.Length)
+        {
+            selected.GetComponent<MeshRenderer>().material = selection;
+
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 selected.GetComponent<MeshRenderer>().material = emplacement;
-                emplacementIndex += 1;
-                if (emplacementIndex >= Emplacements.emplacements.Length)
+
+                
+                int f = emplacementIndex + 1;
+                if (f >= Emplacements.emplacements.Length)
                 {
-                    emplacementIndex = 0;
+                    f = 0;
                 }
-                selected = Emplacements.emplacements[emplacementIndex];
-                selected.GetComponent<MeshRenderer>().material = selection;
+
+                int nb_iter = 0;
+                while (Emplacements.emplacements_occ[f] && nb_iter < Emplacements.emplacements.Length)
+                {
+                    
+                    if (f >= Emplacements.emplacements.Length)
+                    {
+                        f = 0;
+                    }
+                    f += 1;
+                    nb_iter += 1;
+                }
+                
+                if (f != Emplacements.emplacements.Length)
+                {
+                    emplacementIndex = f;
+                    selected = Emplacements.emplacements[emplacementIndex];
+                    selected.GetComponent<MeshRenderer>().material = selection;
+                }
+                
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 selected.GetComponent<MeshRenderer>().material = emplacement;
-                emplacementIndex -= 1;
-                if (emplacementIndex < 0)
+
+                
+                
+                int f = emplacementIndex - 1;
+                if (f <= 0)
                 {
-                    emplacementIndex = Emplacements.emplacements.Length - 1;
+                    f = Emplacements.emplacements.Length-1;
                 }
-                selected = Emplacements.emplacements[emplacementIndex];
-                selected.GetComponent<MeshRenderer>().material = selection;
+
+                int nb_iter = 0;
+                while (Emplacements.emplacements_occ[f] && nb_iter < Emplacements.emplacements.Length)
+                {
+                    
+                    if (f <= 0)
+                    {
+                        f = Emplacements.emplacements.Length-1;
+                    }
+                    f -= 1;
+                    nb_iter += 1;
+                }
+                
+                if (f != Emplacements.emplacements.Length)
+                {
+                    emplacementIndex = f;
+                    selected = Emplacements.emplacements[emplacementIndex];
+                    selected.GetComponent<MeshRenderer>().material = selection;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Y))
@@ -101,6 +164,8 @@ public class AchatTours : MonoBehaviour
                 choix = false;
                 selected.GetComponent<MeshRenderer>().material = emplacement;
                 Instantiate(tourPrefab, selected.position, selected.rotation);
+                Emplacements.emplacements_occ[emplacementIndex] = true;
+                Emplacements.nb_emplacements_occ += 1; 
 
                 if (tourAchete == 3)
                 {
