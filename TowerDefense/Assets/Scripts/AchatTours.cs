@@ -38,6 +38,15 @@ public class AchatTours : MonoBehaviour
 
     public GameObject button_yes;
     public GameObject button_no;
+    public GameObject button_north;
+    public GameObject button_south;
+    public GameObject button_east;
+    public GameObject button_west;
+    public GameObject pos_button;
+
+    public bool positioning = false;
+
+    public GameObject tour_choisie;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +103,7 @@ public class AchatTours : MonoBehaviour
             selected.GetComponent<MeshRenderer>().material = emplacement;
         }
 
-        if (choix && Emplacements.nb_emplacements_occ != Emplacements.emplacements.Length)
+        if (choix && Emplacements.nb_emplacements_occ != Emplacements.emplacements.Length && !positioning)
         {
                 
             button_yes.SetActive(true);
@@ -281,7 +290,7 @@ public class AchatTours : MonoBehaviour
     {
         choix = false;
         selected.GetComponent<MeshRenderer>().material = emplacement;
-        Instantiate(tourPrefab, selected.position, selected.rotation);
+        tour_choisie = Instantiate(tourPrefab, selected.position, selected.rotation);
         Emplacements.emplacements_occ[emplacementIndex] = true;
         Emplacements.nb_emplacements_occ += 1; 
 
@@ -301,8 +310,15 @@ public class AchatTours : MonoBehaviour
             mainGame.GetComponent<Game>().gold -= 50;
         }
 
+        positioning = true;
+
         button_yes.SetActive(false);
         button_no.SetActive(false);
+        button_north.SetActive(true);
+        button_south.SetActive(true);
+        button_east.SetActive(true);
+        button_west.SetActive(true);
+        pos_button.SetActive(true);
     }
 
     public void ButtonNo ()
@@ -312,6 +328,52 @@ public class AchatTours : MonoBehaviour
 
         button_yes.SetActive(false);
         button_no.SetActive(false);
+    }
+
+    public void RotateToNorth()
+    {
+        if (tour_choisie != null)
+        {
+            tour_choisie.transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+    }
+
+    public void RotateToEast()
+    {
+        if (tour_choisie != null)
+        {
+            tour_choisie.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    public void RotateToSouth()
+    {
+        if (tour_choisie != null)
+        {
+            tour_choisie.transform.rotation = Quaternion.Euler(0, 270, 0);
+        }
+    }
+
+    public void RotateToWest()
+    {
+        if (tour_choisie != null)
+        {
+            tour_choisie.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    
+    public void Button_Pos_ok ()
+    {
+        if (positioning)
+        {
+            button_north.SetActive(false);
+            button_south.SetActive(false);
+            button_east.SetActive(false);
+            button_west.SetActive(false);
+            pos_button.SetActive(false);
+            positioning = false;
+        }
     }
 
 }
