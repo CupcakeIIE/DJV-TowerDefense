@@ -13,6 +13,8 @@ public class ToursTirs : MonoBehaviour
     private float range = 25f;
 
     private Transform target;
+
+    public int degats_supp = 0;
     
     [SerializeField] private ToursInfos tourData;
 
@@ -65,7 +67,7 @@ public class ToursTirs : MonoBehaviour
                 while (nb_proj < tourData.projectiles)
                 {
                     GameObject munition = GameObject.Instantiate(munitionPrefab, posDepart.transform.position, posDepart.transform.rotation);
-                    munition.GetComponent<Munition>().degats = tourData.degats;
+                    munition.GetComponent<Munition>().degats = tourData.degats + degats_supp;
                     munition.GetComponent<Munition>().speedMunition = tourData.vitesse;
                     nb_proj += 1;
                 }

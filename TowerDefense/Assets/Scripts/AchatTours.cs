@@ -13,9 +13,13 @@ public class AchatTours : MonoBehaviour
     public Material selection;
 
     public Transform selected;
+    public Transform towerSelected;
+    public Material towerMat;
+
     private int emplacementIndex = 0; 
 
     private bool choix = false;
+    private bool amelioration = false;
 
     public TMP_Text solde;
 
@@ -43,6 +47,7 @@ public class AchatTours : MonoBehaviour
     public GameObject button_east;
     public GameObject button_west;
     public GameObject pos_button;
+    public GameObject button_ame_yes;
 
     public bool positioning = false;
 
@@ -202,6 +207,34 @@ public class AchatTours : MonoBehaviour
             } */
         }
 
+        if (amelioration)
+        {
+            selected.GetComponent<MeshRenderer>().material = emplacement;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    
+                    GameObject clickedObject = hit.collider.gameObject;
+                    Transform parentTransform = clickedObject.transform.parent;
+
+                    if (parentTransform.gameObject.name == "Tour Variant(Clone)")
+                    {
+                        towerMat = hit.collider.GetComponent<MeshRenderer>().material;
+                        hit.collider.GetComponent<MeshRenderer>().material = selection;
+                        towerSelected = hit.collider.gameObject.transform;
+
+                        button_ame_yes.SetActive(true);
+                        button_no.SetActive(true);
+                    }
+                }
+            }
+        }
+
     }
 
 
@@ -281,6 +314,20 @@ public class AchatTours : MonoBehaviour
         }
     }
 
+
+    public void Ameliorer ()
+    {
+        if (mainGame.GetComponent<Game>().gold >= 100)
+        {
+            amelioration = true;
+        }
+        else
+        {
+            amelioration = false;
+        }
+    }
+
+
     public void PlayGoldSound ()
     {
         audioSource.Play();
@@ -324,10 +371,29 @@ public class AchatTours : MonoBehaviour
     public void ButtonNo ()
     {
         choix = false;
+        amelioration = false;
         selected.GetComponent<MeshRenderer>().material = emplacement;
+        towerSelected.GetComponent<MeshRenderer>().material = towerMat;
 
         button_yes.SetActive(false);
         button_no.SetActive(false);
+        button_ame_yes.SetActive(false);
+    }
+
+    public void Button_Ameliorer_Yes ()
+    {
+        amelioration = false;
+        
+        m_MyEvent.Invoke();
+        mainGame.GetComponent<Game>().gold -= 100;
+
+        towerSelected.GetComponent<MeshRenderer>().material = towerMat;
+        GameObject tower = towerSelected.parent.gameObject;
+        Transform weap = tower.transform.Find("Weapon");
+        weap.GetComponent<ToursTirs>().degats_supp += 10;
+
+        button_no.SetActive(false);
+        button_ame_yes.SetActive(false);
     }
 
     public void RotateToNorth()
